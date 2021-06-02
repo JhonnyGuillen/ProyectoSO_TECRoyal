@@ -20,6 +20,7 @@ struct UnitList *selectionUnits(struct UnitList *poblation);
 unit *crossover(unit male, unit female);
 unit *mutation(unit newUnit);
 struct UnitList * mating(struct UnitList *poblacion);
-void printPoblation(struct UnitList *poblacion)
+void printPoblation(struct UnitList *poblacion);
+struct UnitList *genetics(struct UnitList *currentPoblation);
 
 #endif //TRYHILOS_GENETIC_ALGORITHM_H

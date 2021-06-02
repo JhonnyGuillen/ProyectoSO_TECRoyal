@@ -5,6 +5,15 @@
 #include "genetic_algorithm.h"
 #include "unit.h"
 
+struct UnitList *genetics(struct UnitList *currentPoblation){
+    struct UnitList *unitSelection = (struct UnitList*) malloc(sizeof (struct UnitList));
+    struct UnitList *newGeneration = (struct UnitList*) malloc(sizeof (struct UnitList));
+
+    unitSelection = selectionUnits(currentPoblation);
+    newGeneration = mating(unitSelection);
+    return newGeneration;
+};
+
 struct UnitList *selectionUnits(struct UnitList *poblation){
     struct UnitList *unitSelection = (struct UnitList*) malloc(sizeof (struct UnitList));
     int halfPoblation = MAX_POBLATION/2;
@@ -76,6 +85,7 @@ struct UnitList *mating(struct UnitList *poblacion){
 
 void printPoblation(struct UnitList *poblacion){
     struct UnitList *p = (struct UnitList*) malloc(sizeof (struct UnitList));
+    p=poblacion;
     printf("Poblacion:\n");
     while (p !=NULL){
         printf("Nivel: %d \tSalud: %d \tAtaque: %d \tValor Fitness: %d\n",p->unit->level, p->unit->hp, p->unit->atk, p->fitnessValue);
